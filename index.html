@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NSE Nifty 50 Ticker</title>
+  <style>
+    body { margin:0; }
+    .ticker {
+      background: black;
+      font-family: monospace;
+      font-size: 28px;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px;
+    }
+    .ticker-content {
+      display: inline-block;
+      animation: scroll 30s linear infinite; /* 👈 adjust speed here */
+    }
+    @keyframes scroll {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); } /* 👈 only move half, since we duplicate content */
+    }
+    .up { color: lime; }
+    .down { color: red; }
+  </style>
+</head>
+<body>
+  <div class="ticker">
+    <div class="ticker-content">
+      <!-- First copy of stocks -->
+      <span class="up">Adani Enterprises: 2800 ▲</span>
+      <span class="down">Adani Ports: 1200 ▼</span>
+      <span class="up">Apollo Hospitals: 5200 ▲</span>
+      <span class="down">Asian Paints: 3100 ▼</span>
+      <span class="up">Axis Bank: 1050 ▲</span>
+      <span class="up">Bajaj Auto: 6200 ▲</span>
+      <span class="down">Bajaj Finance: 7200 ▼</span>
+      <span class="up">Infosys: 1450 ▲</span>
+      <span class="down">Reliance: 2450 ▼</span>
+      <span class="up">TCS: 3250 ▲</span>
+      <span class="down">HCL Tech: 1600 ▼</span>
+      <span class="up">SBI: 650 ▲</span>
+      <span class="down">Wipro: 450 ▼</span>
+
+      <!-- Duplicate copy for seamless loop -->
+      <span class="up">Adani Enterprises: 2800 ▲</span>
+      <span class="down">Adani Ports: 1200 ▼</span>
+      <span class="up">Apollo Hospitals: 5200 ▲</span>
+      <span class="down">Asian Paints: 3100 ▼</span>
+      <span class="up">Axis Bank: 1050 ▲</span>
+      <span class="up">Bajaj Auto: 6200 ▲</span>
+      <span class="down">Bajaj Finance: 7200 ▼</span>
+      <span class="up">Infosys: 1450 ▲</span>
+      <span class="down">Reliance: 2450 ▼</span>
+      <span class="up">TCS: 3250 ▲</span>
+      <span class="down">HCL Tech: 1600 ▼</span>
+      <span class="up">SBI: 650 ▲</span>
+      <span class="down">Wipro: 450 ▼</span>
+    </div>
+  </div>
+</body>
+</html>
