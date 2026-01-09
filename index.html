@@ -1,52 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NSE Nifty 50 Ticker</title>
+  <title>Two-Line Opposite Scroll Ticker</title>
   <style>
     body { margin:0; background:black; }
 
-.ticker {
-  background: black;
-  font-family: Roborto;
-  font-size:30px;     /* smaller for close viewing */
-  font-weight: normal;
-  letter-spacing: 1px;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 5px 0;
-}
+    .ticker {
+      background: black;
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      font-weight: normal;   /* plain font */
+      letter-spacing: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 5px 0;
+    }
 
-.ticker span {
-  padding: 0 0px;     /* tighter spacing */
-}
+    .ticker span {
+      padding: 0 20px;
+    }
 
-.ticker-content {
-  display: inline-block;
-  animation: scroll 100s linear infinite; /* slower scroll */
-}
+    .ticker-content {
+      display: inline-block;
+    }
 
-@keyframes scroll {
-  from { transform: translateX(0%); }
-  to { transform: translateX(-100%); }
-}
+    /* First line scrolls left */
+    .scroll-left {
+      animation: scroll-left 120s linear infinite;
+    }
 
-.up { color: lime; }
-.down { color: red; }
-/* Fine-tune for smaller screens if needed */
+    @keyframes scroll-left {
+      from { transform: translateX(100%); }
+      to   { transform: translateX(-100%); }
+    }
+
+    /* Second line scrolls right */
+    .scroll-right {
+      animation: scroll-right 120s linear infinite;
+    }
+
+    @keyframes scroll-right {
+      from { transform: translateX(-100%); }
+      to   { transform: translateX(100%); }
+    }
+
+    .up { color: lime; }
+    .down { color: red; }
+
     @media (max-width: 768px) {
-      .ticker { font-size: 6vw; }
+      .ticker { font-size: 5vw; }
       .ticker span { padding: 0 2vw; }
     }
     @media (max-width: 480px) {
-      .ticker { font-size: 7vw; letter-spacing: 1px; }
+      .ticker { font-size: 6vw; letter-spacing: 1px; }
       .ticker span { padding: 0 1vw; }
     }
   </style>
 </head>
 <body>
+  <!-- Line 1: scrolls left -->
   <div class="ticker">
-    <div class="ticker-content">
-<!-- Nifty 50 stocks (sample values) -->
+    <div class="ticker-content scroll-left">
+    <!-- Nifty 50 stocks (sample values) -->
+      <span class="up">Adani Enterprises: 2800 ▲</span>
+      <span class="down">Adani Ports: 1200 ▼</span>
+      <span class="up">Apollo Hospitals: 5200 ▲</span>
+      <span class="down">Asian Paints: 3100 ▼</span>
+      <span class="up">Axis Bank: 1050 ▲</span>
+      <span class="up">Bajaj Auto: 6200 ▲</span>
+      <span class="down">Bajaj Finance: 7200 ▼</span>
+      <span class="up">Bajaj Finserv: 1500 ▲</span>
+      <span class="up">Bharti Airtel: 950 ▲</span>
+      <span class="down">BPCL: 420 ▼</span>
+      <span class="up">Britannia: 4800 ▲</span>
+      <span class="down">Cipla: 1200 ▼</span>
+      <span class="up">Coal India: 250 ▲</span>
+      <span class="down">Divi's Labs: 3600 ▼</span>
+      <span class="up">Dr. Reddy's: 5200 ▲</span>
+      <span class="down">Eicher Motors: 3800 ▼</span>
+      <span class="up">Grasim: 2100 ▲</span>
+      <span class="down">HCL Tech: 1600 ▼</span>
+      <span class="up">HDFC Bank: 1700 ▲</span>
+      <span class="down">HDFC Life: 600 ▼</span>
+      <span class="up">Hero MotoCorp: 3100 ▲</span>
+      <span class="down">Hindalco: 450 ▼</span>
+      <span class="up">HUL: 2500 ▲</span>
+      <span class="down">ICICI Bank: 1050 ▼</span>
+      <span class="up">IndusInd Bank: 1200 ▲</span>
+      <span class="down">Infosys: 1450 ▼</span>
+      <span class="up">ITC: 450 ▲</span>
+      <span class="down">JSW Steel: 850 ▼</span>
+      <span class="up">Kotak Bank: 1900 ▲</span>
+      <span class="down">LT: 3200 ▼</span>
+      <span class="up">Mahindra & Mahindra: 1600 ▲</span>
+      <span class="down">Maruti Suzuki: 9500 ▼</span>
+      <span class="up">Nestle India: 24000 ▲</span>
+      <span class="down">NTPC: 280 ▼</span>
+      <span class="up">ONGC: 180 ▲</span>
+      <span class="down">Power Grid: 210 ▼</span>
+      <span class="up">Reliance: 2450 ▲</span>
+      <span class="down">SBI: 650 ▼</span>
+      <span class="up">SBI Life: 1400 ▲</span>
+      <span class="down">Sun Pharma: 1200 ▼</span>
+      <span class="up">Tata Consumer: 950 ▲</span>
+      <span class="down">Tata Motors: 650 ▼</span>
+      <span class="up">Tata Steel: 120 ▲</span>
+      <span class="down">TCS: 3250 ▼</span>
+      <span class="up">Tech Mahindra: 1200 ▲</span>
+      <span class="down">Titan: 3200 ▼</span>
+      <span class="up">UltraTech Cement: 8500 ▲</span>
+      <span class="down">UPL: 650 ▼</span>
+      <span class="up">Wipro: 450 ▲</span>
+    </div>
+  </div>
+
+  <!-- Line 2: scrolls right -->
+  <div class="ticker">
+    <div class="ticker-content scroll-right">
+  <!-- Nifty 50 stocks (sample values) -->
       <span class="up">Adani Enterprises: 2800 ▲</span>
       <span class="down">Adani Ports: 1200 ▼</span>
       <span class="up">Apollo Hospitals: 5200 ▲</span>
