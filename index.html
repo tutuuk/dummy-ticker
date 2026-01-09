@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Two-Line Opposite Scroll Ticker</title>
+  <title>Dual Direction Ticker</title>
   <style>
     body { margin:0; background:black; }
 
@@ -24,21 +24,19 @@
       display: inline-block;
     }
 
-    /* First line scrolls left */
+    /* Scroll left */
     .scroll-left {
-      animation: scroll-left 120s linear infinite;
+      animation: scroll-left 30s linear infinite;
     }
-
     @keyframes scroll-left {
       from { transform: translateX(100%); }
       to   { transform: translateX(-100%); }
     }
 
-    /* Second line scrolls right */
+    /* Scroll right */
     .scroll-right {
-      animation: scroll-right 120s linear infinite;
+      animation: scroll-right 30s linear infinite;
     }
-
     @keyframes scroll-right {
       from { transform: translateX(-100%); }
       to   { transform: translateX(100%); }
@@ -61,8 +59,7 @@
   <!-- Line 1: scrolls left -->
   <div class="ticker">
     <div class="ticker-content scroll-left">
-    <!-- Nifty 50 stocks (sample values) -->
-      <span class="up">Adani Enterprises: 2800 ▲</span>
+    <span class="up">Adani Enterprises: 2800 ▲</span>
       <span class="down">Adani Ports: 1200 ▼</span>
       <span class="up">Apollo Hospitals: 5200 ▲</span>
       <span class="down">Asian Paints: 3100 ▼</span>
@@ -111,14 +108,14 @@
       <span class="up">UltraTech Cement: 8500 ▲</span>
       <span class="down">UPL: 650 ▼</span>
       <span class="up">Wipro: 450 ▲</span>
+
     </div>
   </div>
 
   <!-- Line 2: scrolls right -->
   <div class="ticker">
     <div class="ticker-content scroll-right">
-  <!-- Nifty 50 stocks (sample values) -->
-      <span class="up">Adani Enterprises: 2800 ▲</span>
+    <span class="up">Adani Enterprises: 2800 ▲</span>
       <span class="down">Adani Ports: 1200 ▼</span>
       <span class="up">Apollo Hospitals: 5200 ▲</span>
       <span class="down">Asian Paints: 3100 ▼</span>
@@ -167,6 +164,7 @@
       <span class="up">UltraTech Cement: 8500 ▲</span>
       <span class="down">UPL: 650 ▼</span>
       <span class="up">Wipro: 450 ▲</span>
+
     </div>
   </div>
 </body>
