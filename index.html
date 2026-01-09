@@ -13,10 +13,10 @@
       letter-spacing: 1px;
       overflow: hidden;
       white-space: nowrap;
-      padding: 5px 0;
+      padding: 0px 0;
     }
 
-    .ticker span { padding: 0 20px; }
+    .ticker span { padding: 0 0px; }
 
     .ticker-track {
       display: inline-block;
@@ -25,7 +25,7 @@
 
     /* Scroll left */
     .scroll-left {
-      animation: scroll-left 130s linear infinite;
+      animation: scroll-left 100s linear infinite;
     }
     @keyframes scroll-left {
       from { transform: translateX(100%); }
@@ -34,7 +34,7 @@
 
     /* Scroll right */
     .scroll-right {
-      animation: scroll-right 130s linear infinite;
+      animation: scroll-right 100s linear infinite;
     }
     @keyframes scroll-right {
       from { transform: translateX(-100%); }
@@ -46,6 +46,9 @@
   </style>
 </head>
 <body>
+
+
+
   <!-- Line 1: scrolls left -->
   <div class="ticker">
     <div class="ticker-content scroll-left">
@@ -98,14 +101,13 @@
       <span class="up">UltraTech Cement: 8500 ▲</span>
       <span class="down">UPL: 650 ▼</span>
       <span class="up">Wipro: 450 ▲</span>
-
     </div>
   </div>
 
   <!-- Line 2: scrolls right -->
   <div class="ticker">
     <div class="ticker-content scroll-right">
-    <span class="up">Adani Enterprises: 2800 ▲</span>
+  <span class="up">Adani Enterprises: 2800 ▲</span>
       <span class="down">Adani Ports: 1200 ▼</span>
       <span class="up">Apollo Hospitals: 5200 ▲</span>
       <span class="down">Asian Paints: 3100 ▼</span>
@@ -154,7 +156,6 @@
       <span class="up">UltraTech Cement: 8500 ▲</span>
       <span class="down">UPL: 650 ▼</span>
       <span class="up">Wipro: 450 ▲</span>
-
     </div>
   </div>
 </body>
