@@ -3,42 +3,55 @@
 <head>
   <title>NSE Nifty 50 Ticker</title>
   <style>
-    body { margin:0; background:black; }
-
-.ticker {
-  background: black;
-  font-family: Arial, sans-serif;
-  font-size: 30px;     /* smaller for close viewing */
-  font-weight: normal;
-  letter-spacing: 0px;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 5px 0;
-}
-
-.ticker span {
-  padding: 0 5px;     /* tighter spacing */
-}
-
-.ticker-content {
-  display: inline-block;
-  animation: scroll 160s linear infinite; /* slower scroll */
-}
-
-@keyframes scroll {
-  from { transform: translateX(0%); }
-  to { transform: translateX(-100%); }
-}
-
-.up { color: lime; }
-.down { color: red; }
-/* Fine-tune for smaller screens if needed */
-    @media (max-width: 700px) {
-      .ticker { font-size: 4vw; }
-      .ticker span { padding: 0 2vw; }
+    body { 
+      margin:0; 
+      background:black; 
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    @media (max-width: 400px) {
-      .ticker { font-size: 5vw; letter-spacing: 1px; }
+
+    .ticker {
+      background: black;
+      font-family: "Segoe UI", Roboto, Verdana, Arial, sans-serif;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0px;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 6px 0;
+    }
+
+    .ticker span {
+      padding: 0 6px;  /* tighter spacing */
+      text-shadow: 0 0 1px rgba(255,255,255,0.25);
+    }
+
+    .ticker-content {
+      display: inline-block;
+      animation: scroll 120s linear infinite; /* smoother, faster loop */
+    }
+
+    /* Pause on hover */
+    .ticker:hover .ticker-content {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); } /* only half, since duplicated */
+    }
+
+    .up { color: lime; }
+    .down { color: red; }
+    .flat { color: #ccc; }
+
+    /* Responsive adjustments */
+    @media (max-width: 760px) {
+      .ticker { font-size: 3.5vw; }
+      .ticker span { padding: 0 1.5vw; }
+    }
+    @media (max-width: 480px) {
+      .ticker { font-size: 4.5vw; }
       .ticker span { padding: 0 1vw; }
     }
   </style>
@@ -46,48 +59,90 @@
 <body>
   <div class="ticker">
     <div class="ticker-content">
-<!-- MSESX 40 stocks (sample values) -->
- <span class="down">Adani Ports: 1308.4 ▼</span>
-<span class="down">Asian Paints: 2703.7 ▼</span>
-<span class="down">Axis Bank: 1258 ▼</span>
-<span class="down">Max Health: 991.5 ▼</span>
-<span class="down">Bajaj Finance: 927.85 ▼</span>
-<span class="down">Bharti Airtel: 1984.7 ▼</span>
-<span class="down">Eicher Motors: 6973 ▼</span>
-<span class="down">TMPV: 344.45 ▼</span>
-<span class="down">Indigo: 4704.5 ▼</span>
-<span class="down">Shriram Finance: 1003.55 ▼</span>
-<span class="up">HCL Tech: 1707 ▲</span>
-<span class="up">Tata Steel: 187.6 ▲</span>
-<span class="down">HDFC Bank: 916.1 ▼</span>
-<span class="down">Trent: 3755.9 ▼</span>
-<span class="flat">Hindalco: 950.3 ▬</span>
-<span class="up">HUL: 2409.5 ▲</span>
-<span class="down">ICICI Bank: 1343.4 ▼</span>
-<span class="flat">Vedanta: 684.15 ▬</span>
-<span class="flat">Infosys: 1670.8 ▬</span>
-<span class="up">Bajaj Auto: 9413.5 ▲</span>
-<span class="down">ITC: 323.4 ▼</span>
-<span class="down">Kotak Bank: 422.8 ▼</span>
-<span class="down">L&T: 3743.8 ▼</span>
-<span class="down">M&M: 3543.4 ▼</span>
-<span class="down">Maruti: 15469 ▼</span>
-<span class="down">BEL: 410.7 ▼</span>
-<span class="down">NTPC: 336.7 ▼</span>
-<span class="down">BSE: 2685.4 ▼</span>
-<span class="down">Power Grid: 254.15 ▼</span>
-<span class="down">Reliance: 1386.1 ▼</span>
-<span class="flat">SBI: 1029.5 ▬</span>
-<span class="down">Sun Pharma: 1631.9 ▼</span>
-<span class="down">HAL: 4305.7 ▼</span>
-<span class="down">TVS Motor: 3549.8 ▼</span>
-<span class="up">TCS: 3162.5 ▲</span>
-<span class="up">Tech Mahindra: 1701.1 ▲</span>
-<span class="up">Titan: 4021.8 ▲</span>
-<span class="up">UltraTech Cement: 12369 ▲</span>
-<span class="flat">Jio Financial: 252.9 ▬</span>
-<span class="down">Eternal: 258.7 ▼</span>
-</div>
+      <!-- First set -->
+      <span class="down">Adani Ports: 1308.4 ▼</span>
+      <span class="down">Asian Paints: 2703.7 ▼</span>
+      <span class="down">Axis Bank: 1258 ▼</span>
+      <span class="down">Max Health: 991.5 ▼</span>
+      <span class="down">Bajaj Finance: 927.85 ▼</span>
+      <span class="down">Bharti Airtel: 1984.7 ▼</span>
+      <span class="down">Eicher Motors: 6973 ▼</span>
+      <span class="down">TMPV: 344.45 ▼</span>
+      <span class="down">Indigo: 4704.5 ▼</span>
+      <span class="down">Shriram Finance: 1003.55 ▼</span>
+      <span class="up">HCL Tech: 1707 ▲</span>
+      <span class="up">Tata Steel: 187.6 ▲</span>
+      <span class="down">HDFC Bank: 916.1 ▼</span>
+      <span class="down">Trent: 3755.9 ▼</span>
+      <span class="flat">Hindalco: 950.3 ▬</span>
+      <span class="up">HUL: 2409.5 ▲</span>
+      <span class="down">ICICI Bank: 1343.4 ▼</span>
+      <span class="flat">Vedanta: 684.15 ▬</span>
+      <span class="flat">Infosys: 1670.8 ▬</span>
+      <span class="up">Bajaj Auto: 9413.5 ▲</span>
+      <span class="down">ITC: 323.4 ▼</span>
+      <span class="down">Kotak Bank: 422.8 ▼</span>
+      <span class="down">L&T: 3743.8 ▼</span>
+      <span class="down">M&M: 3543.4 ▼</span>
+      <span class="down">Maruti: 15469 ▼</span>
+      <span class="down">BEL: 410.7 ▼</span>
+      <span class="down">NTPC: 336.7 ▼</span>
+      <span class="down">BSE: 2685.4 ▼</span>
+      <span class="down">Power Grid: 254.15 ▼</span>
+      <span class="down">Reliance: 1386.1 ▼</span>
+      <span class="flat">SBI: 1029.5 ▬</span>
+      <span class="down">Sun Pharma: 1631.9 ▼</span>
+      <span class="down">HAL: 4305.7 ▼</span>
+      <span class="down">TVS Motor: 3549.8 ▼</span>
+      <span class="up">TCS: 3162.5 ▲</span>
+      <span class="up">Tech Mahindra: 1701.1 ▲</span>
+      <span class="up">Titan: 4021.8 ▲</span>
+      <span class="up">UltraTech Cement: 12369 ▲</span>
+      <span class="flat">Jio Financial: 252.9 ▬</span>
+      <span class="down">Eternal: 258.7 ▼</span>
+
+      <!-- Duplicate set for seamless loop -->
+      <span class="down">Adani Ports: 1308.4 ▼</span>
+      <span class="down">Asian Paints: 2703.7 ▼</span>
+      <span class="down">Axis Bank: 1258 ▼</span>
+      <span class="down">Max Health: 991.5 ▼</span>
+      <span class="down">Bajaj Finance: 927.85 ▼</span>
+      <span class="down">Bharti Airtel: 1984.7 ▼</span>
+      <span class="down">Eicher Motors: 6973 ▼</span>
+      <span class="down">TMPV: 344.45 ▼</span>
+      <span class="down">Indigo: 4704.5 ▼</span>
+      <span class="down">Shriram Finance: 1003.55 ▼</span>
+      <span class="up">HCL Tech: 1707 ▲</span>
+      <span class="up">Tata Steel: 187.6 ▲</span>
+      <span class="down">HDFC Bank: 916.1 ▼</span>
+      <span class="down">Trent: 3755.9 ▼</span>
+      <span class="flat">Hindalco: 950.3 ▬</span>
+      <span class="up">HUL: 2409.5 ▲</span>
+      <span class="down">ICICI Bank: 1343.4 ▼</span>
+      <span class="flat">Vedanta: 684.15 ▬</span>
+      <span class="flat">Infosys: 1670.8 ▬</span>
+      <span class="up">Bajaj Auto: 9413.5 ▲</span>
+      <span class="down">ITC: 323.4 ▼</span>
+      <span class="down">Kotak Bank: 422.8 ▼</span>
+      <span class="down">L&T: 3743.8 ▼</span>
+      <span class="down">M&M: 3543.4 ▼</span>
+      <span class="down">Maruti: 15469 ▼</span>
+      <span class="down">BEL: 410.7 ▼</span>
+      <span class="down">NTPC: 336.7 ▼</span>
+      <span class="down">BSE: 2685.4 ▼</span>
+      <span class="down">Power Grid: 254.15 ▼</span>
+      <span class="down">Reliance: 1386.1 ▼</span>
+      <span class="flat">SBI: 1029.5 ▬</span>
+      <span class="down">Sun Pharma: 1631.9 ▼</span>
+      <span class="down">HAL: 4305.7 ▼</span>
+      <span class="down">TVS Motor: 3549.8 ▼</span>
+      <span class="up">TCS: 3162.5 ▲</span>
+      <span class="up">Tech Mahindra: 1701.1 ▲</span>
+      <span class="up">Titan: 4021.8 ▲</span>
+      <span class="up">UltraTech Cement: 12369 ▲</span>
+      <span class="flat">Jio Financial: 252.9 ▬</span>
+      <span class="down">Eternal: 258.7 ▼</span>
+    </div>
   </div>
 </body>
 </html>
