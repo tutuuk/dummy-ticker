@@ -13,20 +13,18 @@
     .ticker {
       background: black;
       font-family: Segoe UI;
-      font-size: 22px;       /* half-height (~44px) */
-      font-weight: 600;      /* bold for LED clarity */
-      letter-spacing: 0;
+      font-size: 18px;       /* half-height (~44px) */
+      font-weight: 500;      /* bold for LED clarity */
+      letter-spacing:0.5px;
       overflow: hidden;
       white-space: nowrap;
-      padding: 4px 0;
+      padding: 2px 0;
     }
 
     .ticker span {
-      font-family: inherit;
-      font-weight: inherit;
-      padding: 0 8px;        /* tighter spacing */
-      text-shadow: 0 0 2px rgba(255,255,255,0.3);
-    }
+     transform: scaleX(0.95);
+     display: inline-block;
+   }
 
     .ticker-track {
       display: inline-block;
@@ -36,7 +34,7 @@
 
     @keyframes scroll {
       from { transform: translateX(0); }
-      to   { transform: translateX(-50%); } /* seamless loop */
+      to   { transform: translateX(-100%); } /* seamless loop */
     }
 
     .up   { color: lime; }
